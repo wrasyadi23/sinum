@@ -9,7 +9,8 @@
           integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
           crossorigin="anonymous"/>
 
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css')}}">
 
     @yield('third_party_stylesheets')
 
@@ -84,7 +85,10 @@
     </footer>
 </div>
 
-<script src="{{ mix('js/app.js') }}" defer></script>
+{{-- <script src="{{ mix('js/app.js') }}" defer></script> --}}
+<script src="{{ asset('adminlte/dist/js/adminlte.min.js')}}"></script>
+<script src="{{ asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 @yield('third_party_scripts')
 

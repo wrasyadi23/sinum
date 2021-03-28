@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Organisasi extends Model
 {
@@ -16,7 +18,7 @@ class Organisasi extends Model
     /**
      * Get all of the comments for the Organisasi
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function organisasi(): HasMany
     {
@@ -26,7 +28,7 @@ class Organisasi extends Model
     /**
      * Get all of the comments for the Organisasi
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function childOrganisasi(): HasMany
     {
