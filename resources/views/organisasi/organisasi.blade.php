@@ -18,6 +18,11 @@
                         <h5 class="card-title">Card title</h5>
                     </div> --}}
                     <div class="card-body">
+                        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#add">
+                            <i class="far fa-edit"></i>
+                            Add New
+                        </button>
+
                         <table id="example1" class="table table-striped table-bordered">
                             <thead>
                                 @php
@@ -57,6 +62,50 @@
                                 </tr>
                             </tfoot> --}}
                         </table>
+
+                        {{-- modal add --}}
+                        <div class="modal fade" id="add">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Input Organisasi</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="">Unit Kerja</label>
+                                        <input type="text" name="unit_kerja" id="" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Klasifikasi Unit Kerja</label>
+                                        <select class="form-control select2bs4" style="width: 100%;" 
+                                            name="klas_unit_kerja" id="" required>
+                                            <option selected disabled>Pilih Klasifikasi</option>
+                                            <option value="Komisaris" >Komisaris</option>
+                                            <option value="Direktorat" >Direksi</option>
+                                            <option value="Kompartemen" >Kompartemen</option>
+                                            <option value="Departemen" >Departemen</option>
+                                            <option value="Bagian" >Bagian</option>
+                                            <option value="Seksi" >Seksi</option>
+                                            <option value="Regu" >Regu</option>
+                                            <option value="Staf" >Staf</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                </form>
+                              </div>
+                              <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,12 +114,14 @@
 @endsection
 
 @push('page_css')
-<link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-<link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css')}}">
+<link rel="stylesheet" href="{{ asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 @endpush
 
-@section('third_party_scripts')
+@push('page_scripts')
 <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
@@ -86,7 +137,9 @@
 <script>
     $(function () {
       $("#example1").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "responsive": true,
+        "lengthChange": false, 
+        "autoWidth": false,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     //   $('#example2').DataTable({
@@ -122,5 +175,13 @@
             fixedHeader: true
         } );
     } );
-  </script>
-@endsection
+</script>
+<script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>
+<script>
+    $(function() {
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+    });
+</script>
+@endpush
