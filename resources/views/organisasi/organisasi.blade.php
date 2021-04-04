@@ -63,7 +63,7 @@
                             </tfoot> --}}
                         </table>
 
-                        {{-- modal add --}}
+                        {{-- modal add new--}}
                         <div class="modal fade" id="add">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -73,7 +73,7 @@
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                <form action="" method="post" enctype="multipart/form-data">
+                                <form action="/organisasi/organisasi-store" method="post" enctype="multipart/form-data">
                                     @csrf
                                 <div class="modal-body">
                                     <div class="form-group">
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                                 </form>
                               </div>

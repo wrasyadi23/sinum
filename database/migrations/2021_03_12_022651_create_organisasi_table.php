@@ -18,6 +18,7 @@ class CreateOrganisasiTable extends Migration
             $table->string('kode_unit', 45)->unique();
             $table->string('unit_kerja', 45);
             $table->string('parent_kode_unit', 45)->nullable();
+            $table->string('unit_kerja_level', 45);
             $table->string('status', 45);
             $table->timestamps();
 
