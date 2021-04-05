@@ -22,10 +22,10 @@ class CreateOrganisasiTable extends Migration
             $table->string('status', 45);
             $table->timestamps();
 
-            $table->foreign('parent_kode_unit')
-                ->reference('kode_unit')
-                ->on('organisasi')
-                ->onDelete('set null');
+            // $table->foreign('parent_kode_unit')
+            //     ->reference('kode_unit')
+            //     ->on('organisasi')
+            //     ->onDelete('set null');
         });
     }
 
