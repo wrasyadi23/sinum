@@ -11,7 +11,10 @@ class OrganisasiController extends Controller
 {
     public function index()
     {
-        return view('organisasi.organisasi');
+        $organisasi = Organisasi::all();
+        return view('organisasi.organisasi', [
+            'organisasi' => $organisasi,
+        ]);
     }
 
     public function store(Request $request)
