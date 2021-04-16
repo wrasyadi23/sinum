@@ -19,7 +19,7 @@
                     </div> --}}
                     <div class="card-body">
                         <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#add">
-                            <i class="far fa-edit"></i>
+                            <i class="fa fa-plus-circle"></i>
                             Add New
                         </button>
 
@@ -34,23 +34,21 @@
                                     <th>Unit Kerja</th>
                                     <th>Parent Kode Unit</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($organisasi as $result => $item)  
                                 <tr>
-                                    <td>No</td>
-                                    <td>12345</td>
-                                    <td>Unit Kerja</td>
-                                    <td>Parent Kode Unit</td>
-                                    <td>Status</td>
+                                    <td>{{$no++}}</td>
+                                    <td>{{$item->kode_unit}}</td>
+                                    <td>{{$item->unit_kerja}}</td>
+                                    <td>{{$item->parent_kode_unit}}</td>
+                                    <td>{{$item->status}}</td>
+                                    <td><button class="btn btn-sm btn-warning">
+                                        <i class="far fa-edit"></i>Edit</button></td>
                                 </tr>
-                                <tr>
-                                    <td>No</td>
-                                    <td>12334</td>
-                                    <td>Unit Kerja</td>
-                                    <td>Parent Kode Unit</td>
-                                    <td>Status</td>
-                                </tr>
+                                @endforeach
                             </tbody>
                             {{-- <tfoot>
                                 <tr>
@@ -138,7 +136,9 @@
     $(function () {
       $("#example1").DataTable({
         "responsive": true,
-        "lengthChange": false, 
+        "lengthChange": false,
+        "orderCellsTop": true,
+        "fixedHeader": true, 
         "autoWidth": false,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
@@ -168,11 +168,6 @@
                         .draw();
                 }
             } );
-        } );
-    
-        var table = $('#example1').DataTable( {
-            orderCellsTop: true,
-            fixedHeader: true
         } );
     } );
 </script>
