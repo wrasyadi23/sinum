@@ -20,5 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/organisasi/organisasi', 'OrganisasiController@index')->name('organisasi');
 Route::post('/organisasi/organisasi-store', 'OrganisasiController@store')->name('organisasi.store');
+Route::post('/organisasi/organisasi-store-downline', 'OrganisasiController@store-downline')->name('organisasi.store-downline');
 
 Auth::routes();

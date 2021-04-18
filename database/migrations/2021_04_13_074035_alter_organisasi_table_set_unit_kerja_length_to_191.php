@@ -25,7 +25,7 @@ class AlterOrganisasiTableSetUnitKerjaLengthTo191 extends Migration
      */
     public function down()
     {
-        Schema::table('191', function (Blueprint $table) {
+        Schema::table('organisasi', function (Blueprint $table) {
             //
         });
     }
