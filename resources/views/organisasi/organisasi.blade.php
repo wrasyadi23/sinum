@@ -29,6 +29,11 @@
                                     <i class="fa fa-upload"></i>
                                     Import
                                 </button>
+
+                                <a href="#" class="btn btn-primary mb-3">
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                    Download Template
+                                </a>
                             </div>
                         </div>
 
@@ -54,7 +59,10 @@
                                     <td>{{$item->unit_kerja}}</td>
                                     <td>{{$item->parent_kode_unit}}</td>
                                     <td>{{$item->status}}</td>
-                                    <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addDownline">
+                                    <td><button class="btn btn-sm btn-primary" 
+                                        data-toggle="modal" 
+                                        data-target="#addDownline"
+                                        onclick='uplineValue({!! $item !!})'>
                                         <i class="fa fa-plus-circle"></i> Add Downline
                                         </button>
 
@@ -142,12 +150,14 @@
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                <form action="/organisasi/organisasi-store-downline" name="addDownline" method="post" enctype="multipart/form-data">
+                                <form action="" name="addDownline"
+                                 method="post" id="addDownline-form" enctype="multipart/form-data">
                                     @csrf
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="">Upline</label>
-                                        <input type="text" name="parent_kode_unit" id="" class="form-control" value="" readonly>
+                                        <input type="text" name="parent_kode_unit" id="kode_unit" 
+                                        class="form-control" value="{{$organisasi->first()}}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Unit Kerja</label>
@@ -279,5 +289,10 @@
             theme: 'bootstrap4'
         })
     });
+
+    function uplineValue(data) {
+        $('#kode_unit').val(data.kode_unit)
+        $('#addDownline-form').attr('action','/organisasi/organisasi-store-downline')
+    }
 </script>
 @endpush
