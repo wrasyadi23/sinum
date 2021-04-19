@@ -38,7 +38,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($organisasi as $result => $item)  
+                                @foreach ($organisasi as $result => $item)
                                 <tr>
                                     <td>{{$no++}}</td>
                                     <td>{{$item->kode_unit}}</td>
@@ -48,7 +48,7 @@
                                     <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addDownline">
                                         <i class="fa fa-plus-circle"></i> Add Downline
                                         </button>
-                                        
+
                                         <button class="btn btn-sm btn-warning">
                                         <i class="far fa-edit"></i> Edit</button></td>
                                 </tr>
@@ -84,11 +84,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Unit Kerja</label>
-                                        <input type="text" name="unit_kerja" id="" class="form-control" re>
+                                        <input type="text" name="unit_kerja" id="" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Klasifikasi Unit Kerja</label>
-                                        <select class="form-control select2bs4" style="width: 100%;" 
+                                        <select class="form-control select2bs4" style="width: 100%;"
                                             name="unit_kerja_level" id="" required>
                                             <option selected disabled>Pilih Klasifikasi</option>
                                             <option value="Komisaris" >Komisaris</option>
@@ -122,7 +122,7 @@
                             </div>
                             <!-- /.modal-dialog -->
                         </div>
-                        
+
                         {{-- modal add branch  --}}
                         <div class="modal fade" id="addDownline">
                             <div class="modal-dialog modal-lg">
@@ -146,7 +146,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Klasifikasi Unit Kerja</label>
-                                        <select class="form-control select2bs4" style="width: 100%;" 
+                                        <select class="form-control select2bs4" style="width: 100%;"
                                             name="klas_unit_kerja" id="" required>
                                             <option selected disabled>Pilih Klasifikasi</option>
                                             <option value="Komisaris" >Komisaris</option>
@@ -204,7 +204,7 @@
         "responsive": true,
         "lengthChange": false,
         "orderCellsTop": true,
-        "fixedHeader": true, 
+        "fixedHeader": true,
         "autoWidth": false,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
@@ -217,25 +217,21 @@
     //     "autoWidth": false,
     //     "responsive": true,
     //   });
-    });
- 
-    $(document).ready(function() {
-    // Setup - add a text input to each footer cell
+        const dataTableApi = new $.fn.dataTable.Api('#example1');
         $('#example1 thead tr').clone(true).appendTo( '#example1 thead' );
         $('#example1 thead tr:eq(1) th').each( function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
-    
             $( 'input', this ).on( 'keyup change', function () {
-                if ( table.column(i).search() !== this.value ) {
-                    table
-                        .column(i)
+                if ( dataTableApi.columns().search() !== this.value ) {
+                    dataTableApi
+                        .columns(i)
                         .search( this.value )
                         .draw();
                 }
             } );
         } );
-    } );
+    });
 </script>
 <script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>
 <script>
