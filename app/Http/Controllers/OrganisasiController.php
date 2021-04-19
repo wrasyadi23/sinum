@@ -29,6 +29,6 @@ class OrganisasiController extends Controller
         $organisasi->valid_to = $request->valid_to;
         $organisasi->save();
 
-        return redirect('organisasi.organisasi');
+        return redirect('organisasi.organisasi')->with('success','Struktur baru berhasil disimpan.');
     }
 }

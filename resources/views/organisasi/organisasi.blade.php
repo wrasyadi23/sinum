@@ -18,10 +18,17 @@
                         <h5 class="card-title">Card title</h5>
                     </div> --}}
                     <div class="card-body">
-                        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#add">
-                            <i class="fa fa-plus-circle"></i>
-                            Add New
-                        </button>
+                        <div class="row">
+                            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#add">
+                                <i class="fa fa-plus-circle"></i>
+                                Add New
+                            </button>
+
+                            <button class="btn btn-primary md-3" data-toggle="modal" data-target="#import">
+                                <i class="fa fa-upload"></i>
+                                Import
+                            </button>
+                        </div>
 
                         <table id="example1" class="table table-striped table-bordered">
                             <thead>
@@ -75,7 +82,7 @@
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                <form action="/organisasi/organisasi-store" method="post" enctype="multipart/form-data">
+                                <form action="/organisasi/organisasi-store" name="add" method="post" enctype="multipart/form-data">
                                     @csrf
                                 <div class="modal-body">
                                     <div class="form-group">
@@ -114,7 +121,7 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary" name="add">Submit</button>
                                 </div>
                                 </form>
                               </div>
@@ -133,7 +140,7 @@
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                <form action="/organisasi/organisasi-store-downline" method="post" enctype="multipart/form-data">
+                                <form action="/organisasi/organisasi-store-downline" name="addDownline" method="post" enctype="multipart/form-data">
                                     @csrf
                                 <div class="modal-body">
                                     <div class="form-group">
@@ -162,7 +169,7 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary" name="addDownline">Submit</button>
                                 </div>
                                 </form>
                               </div>
@@ -170,6 +177,55 @@
                             </div>
                             <!-- /.modal-dialog -->
                         </div>
+
+                        {{-- modal import  --}}
+                        <div class="modal fade" id="import">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Import Organisasi</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <form action="/organisasi/organisasi-import" method="post" name="import" enctype="multipart/form-data">
+                                    @csrf
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="">Upline</label>
+                                        <input type="text" name="parent_kode_unit" id="" class="form-control" value="" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Unit Kerja</label>
+                                        <input type="text" name="unit_kerja" id="" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Klasifikasi Unit Kerja</label>
+                                        <select class="form-control select2bs4" style="width: 100%;" 
+                                            name="klas_unit_kerja" id="" required>
+                                            <option selected disabled>Pilih Klasifikasi</option>
+                                            <option value="Komisaris" >Komisaris</option>
+                                            <option value="Direktorat" >Direksi</option>
+                                            <option value="Kompartemen" >Kompartemen</option>
+                                            <option value="Departemen" >Departemen</option>
+                                            <option value="Bagian" >Bagian</option>
+                                            <option value="Seksi" >Seksi</option>
+                                            <option value="Regu" >Regu</option>
+                                            <option value="Staf" >Staf</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" name="import">Submit</button>
+                                </div>
+                                </form>
+                              </div>
+                              <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+
                     </div>
                 </div>
             </div>
