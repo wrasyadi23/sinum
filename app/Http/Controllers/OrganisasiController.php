@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use PDF;
 use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Organisasi;
 
 class OrganisasiController extends Controller
@@ -30,5 +31,11 @@ class OrganisasiController extends Controller
         $organisasi->save();
 
         return redirect('organisasi.organisasi')->with('success','Struktur baru berhasil disimpan.');
+    }
+
+    public function import(request $request)
+    {
+        Excel::import(new ImportOrganisasi, $request->file('organisasi'));
+        return back()->with('import-success','Data berhasil diimport.');
     }
 }
