@@ -145,7 +145,7 @@
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Input Organisasi</h4>
+                                        <h4 class="modal-title">Input Downline</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
@@ -160,13 +160,17 @@
                                         class="form-control" value="{{$organisasi->first()}}" readonly>
                                     </div>
                                     <div class="form-group">
+                                        <label for="">Kode Unit</label>
+                                        <input type="text" name="kode_unit" id="" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="">Unit Kerja</label>
                                         <input type="text" name="unit_kerja" id="" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Klasifikasi Unit Kerja</label>
                                         <select class="form-control select2bs4" style="width: 100%;"
-                                            name="klas_unit_kerja" id="" required>
+                                            name="unit_kerja_level" id="" required>
                                             <option selected disabled>Pilih Klasifikasi</option>
                                             <option value="Komisaris" >Komisaris</option>
                                             <option value="Direktorat" >Direksi</option>
@@ -177,6 +181,16 @@
                                             <option value="Regu" >Regu</option>
                                             <option value="Staf" >Staf</option>
                                         </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Valid From</label>
+                                            <input type="date" name="valid_from" id="" class="form-control" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Valid To</label>
+                                            <input type="date" name="valid_to" id="" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
