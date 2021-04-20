@@ -24,7 +24,7 @@
                                     <i class="fa fa-plus-circle"></i>
                                     Add New
                                 </button>
-    
+
                                 <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#import">
                                     <i class="fa fa-upload"></i>
                                     Import
@@ -59,8 +59,8 @@
                                     <td>{{$item->unit_kerja}}</td>
                                     <td>{{$item->parent_kode_unit}}</td>
                                     <td>{{$item->status}}</td>
-                                    <td><button class="btn btn-sm btn-primary" 
-                                        data-toggle="modal" 
+                                    <td><button class="btn btn-sm btn-primary"
+                                        data-toggle="modal"
                                         data-target="#addDownline"
                                         onclick='uplineValue({!! $item !!})'>
                                         <i class="fa fa-plus-circle"></i> Add Downline
@@ -156,7 +156,7 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="">Upline</label>
-                                        <input type="text" name="parent_kode_unit" id="kode_unit" 
+                                        <input type="text" name="parent_kode_unit" id="kode_unit"
                                         class="form-control" value="{{$organisasi->first()}}" readonly>
                                     </div>
                                     <div class="form-group">
@@ -165,7 +165,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Klasifikasi Unit Kerja</label>
-                                        <select class="form-control select2bs4" style="width: 100%;" 
+                                        <select class="form-control select2bs4" style="width: 100%;"
                                             name="klas_unit_kerja" id="" required>
                                             <option selected disabled>Pilih Klasifikasi</option>
                                             <option value="Komisaris" >Komisaris</option>
@@ -255,7 +255,44 @@
         "orderCellsTop": true,
         "fixedHeader": true,
         "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        "buttons": [
+            {
+                extend: "copy",
+                exportOptions: {
+                    columns: ':visible',
+                    rows: ':visible'
+                }
+            },
+            {
+                extend: "csv",
+                exportOptions: {
+                    columns: ':visible',
+                    rows: ':visible'
+                }
+            },
+            {
+                extend: "excel",
+                exportOptions: {
+                    columns: ':visible',
+                    rows: ':visible'
+                }
+            },
+            {
+                extend: "pdf",
+                exportOptions: {
+                    columns: ':visible',
+                    rows: ':visible'
+                }
+            },
+            {
+                extend: "print",
+                exportOptions: {
+                    columns: ':visible',
+                    rows: ':visible'
+                }
+            },
+            "colvis"
+        ]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     //   $('#example2').DataTable({
     //     "paging": true,
