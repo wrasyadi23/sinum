@@ -69,7 +69,7 @@
                                         <button class="btn btn-sm btn-warning"
                                         data-toggle="modal"
                                         data-target="#edit"
-                                        onclick='editValue(!! $item !!)'>
+                                        onclick='editValue({!! $item !!})'>
                                         <i class="far fa-edit"></i> Edit</button></td>
                                 </tr>
                                 @endforeach
@@ -257,12 +257,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Kode Unit</label>
-                                        <input type="text" name="kode_unit" id="kode_unit" 
+                                        <input type="text" name="kode_unit" id="kode_unit"
                                         class="form-control" value="{{$organisasi->first()}}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Unit Kerja</label>
-                                        <input type="text" name="unit_kerja" id="unit_kerja" 
+                                        <input type="text" name="unit_kerja" id="unit_kerja"
                                         class="form-control" value="{{$organisasi->first()}}" required>
                                     </div>
                                     <div class="form-group">
@@ -283,12 +283,12 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="">Valid From</label>
-                                            <input type="date" name="valid_from" id="valid_from" 
+                                            <input type="date" name="valid_from" id="valid_from"
                                             class="form-control" value="{{$organisasi->first()}}" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Valid To</label>
-                                            <input type="date" name="valid_to" id="valid_to" 
+                                            <input type="date" name="valid_to" id="valid_to"
                                             class="form-control" value="{{$organisasi->first()}}" required>
                                         </div>
                                     </div>
@@ -418,7 +418,7 @@
     }
 
     function editValue(data) {
-        $('#kode_unit').val(data.kode_unit)
+        $('input[name=kode_unit]').val(data.kode_unit)
         $('#unit_kerja').val(data.unit_kerja)
         $('#parent_kode_unit').val(data.parent_kode_unit)
         $('#unit_kerja_level').val(data.unit_kerja_level)
