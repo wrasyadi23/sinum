@@ -66,7 +66,10 @@
                                         <i class="fa fa-plus-circle"></i> Add Downline
                                         </button>
 
-                                        <button class="btn btn-sm btn-warning">
+                                        <button class="btn btn-sm btn-warning"
+                                        data-toggle="modal"
+                                        data-target="#edit"
+                                        onclick='editValue(!! $item !!)'>
                                         <i class="far fa-edit"></i> Edit</button></td>
                                 </tr>
                                 @endforeach
@@ -233,6 +236,74 @@
                             <!-- /.modal-dialog -->
                         </div>
 
+                        {{-- modal edit  --}}
+                        <div class="modal fade" id="edit">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Edit Organisasi</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <form action="" name="edit"
+                                 method="post" id="edit-form" enctype="multipart/form-data">
+                                    @csrf
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="">Upline</label>
+                                        <input type="text" name="parent_kode_unit" id="parent_kode_unit"
+                                        class="form-control" value="{{$organisasi->first()}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Kode Unit</label>
+                                        <input type="text" name="kode_unit" id="kode_unit" 
+                                        class="form-control" value="{{$organisasi->first()}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Unit Kerja</label>
+                                        <input type="text" name="unit_kerja" id="unit_kerja" 
+                                        class="form-control" value="{{$organisasi->first()}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Klasifikasi Unit Kerja</label>
+                                        <select class="form-control select2bs4" style="width: 100%;"
+                                            name="unit_kerja_level" id="" required>
+                                            <option selected disabled>Pilih Klasifikasi</option>
+                                            <option value="Komisaris" >Komisaris</option>
+                                            <option value="Direktorat" >Direksi</option>
+                                            <option value="Kompartemen" >Kompartemen</option>
+                                            <option value="Departemen" >Departemen</option>
+                                            <option value="Bagian" >Bagian</option>
+                                            <option value="Seksi" >Seksi</option>
+                                            <option value="Regu" >Regu</option>
+                                            <option value="Staf" >Staf</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Valid From</label>
+                                            <input type="date" name="valid_from" id="valid_from" 
+                                            class="form-control" value="{{$organisasi->first()}}" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Valid To</label>
+                                            <input type="date" name="valid_to" id="valid_to" 
+                                            class="form-control" value="{{$organisasi->first()}}" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" name="edit">Submit</button>
+                                </div>
+                                </form>
+                              </div>
+                              <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -344,6 +415,17 @@
     function uplineValue(data) {
         $('#kode_unit').val(data.kode_unit)
         $('#addDownline-form').attr('action','/organisasi/organisasi-store-downline')
+    }
+
+    function editValue(data) {
+        $('#kode_unit').val(data.kode_unit)
+        $('#unit_kerja').val(data.unit_kerja)
+        $('#parent_kode_unit').val(data.parent_kode_unit)
+        $('#unit_kerja_level').val(data.unit_kerja_level)
+        $('#status').val(data.status)
+        $('#valid_from').val(data.valid_from)
+        $('#valid_to').val(data.valid_to)
+        $('#edit-form').attr('action','/organisasi/organisasi-update')
     }
 </script>
 @endpush
