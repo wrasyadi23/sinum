@@ -269,14 +269,14 @@
                                         <label for="">Klasifikasi Unit Kerja</label>
                                         <select class="form-control select2bs4" style="width: 100%;"
                                             name="unit_kerja_level" id="unit_kerja_level" required>
-                                            <option value="Komisaris" {{$organisasi->first() == 'Komisaris' ? 'selected'}}>Komisaris</option>
-                                            <option value="Direktorat" {{$organisasi->first() == 'Direktorat' ? 'selected'}}>Direksi</option>
-                                            <option value="Kompartemen" {{$organisasi->first() == 'Kompartemen' ? 'selected'}}>Kompartemen</option>
-                                            <option value="Departemen" {{$organisasi->first() == 'Departemen' ? 'selected'}}>Departemen</option>
-                                            <option value="Bagian" {{$organisasi->first() == 'Bagian' ? 'selected'}}>Bagian</option>
-                                            <option value="Seksi" {{$organisasi->first() == 'Seksi' ? 'selected'}}>Seksi</option>
-                                            <option value="Regu" {{$organisasi->first() == 'Regu' ? 'selected'}}>Regu</option>
-                                            <option value="Staf" {{$organisasi->first() == 'Staf' ? 'selected'}}>Staf</option>
+                                            <option value="Komisaris" {{$organisasi->first() == 'Komisaris' ? 'selected' : ''}}>Komisaris</option>
+                                            <option value="Direktorat" {{$organisasi->first() == 'Direktorat' ? 'selected' : ''}}>Direksi</option>
+                                            <option value="Kompartemen" {{$organisasi->first() == 'Kompartemen' ? 'selected' : ''}}>Kompartemen</option>
+                                            <option value="Departemen" {{$organisasi->first() == 'Departemen' ? 'selected' : ''}}>Departemen</option>
+                                            <option value="Bagian" {{$organisasi->first() == 'Bagian' ? 'selected' : ''}}>Bagian</option>
+                                            <option value="Seksi" {{$organisasi->first() == 'Seksi' ? 'selected' : ''}}>Seksi</option>
+                                            <option value="Regu" {{$organisasi->first() == 'Regu' ? 'selected' : ''}}>Regu</option>
+                                            <option value="Staf" {{$organisasi->first() == 'Staf' ? 'selected' : ''}}>Staf</option>
                                         </select>
                                     </div>
                                     <div class="row">
@@ -420,7 +420,7 @@
         $('input[name=kode_unit]').val(data.kode_unit)
         $('#unit_kerja').val(data.unit_kerja)
         $('#parent_kode_unit').val(data.parent_kode_unit)
-        $('#unit_kerja_level').val(data.unit_kerja_level)
+        $('#unit_kerja_level').val(data.unit_kerja_level).change()
         $('#status').val(data.status)
         $('#valid_from').val(data.valid_from)
         $('#valid_to').val(data.valid_to)
