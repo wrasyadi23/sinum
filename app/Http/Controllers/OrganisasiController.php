@@ -53,4 +53,19 @@ class OrganisasiController extends Controller
         Excel::import(new ImportOrganisasi, $request->file('organisasi'));
         return back()->with('import-success','Data berhasil diimport.');
     }
+
+    public function update(request $request, $id)
+    {
+        $organisasi = Organisasi::where('id',$id)->first();
+        $organisasi->kode_unit = $request->kode_unit;
+        $organisasi->unit_kerja = $request->unit_kerja;
+        $organisasi->parent_kode_unit = $request->parent_kode_unit;
+        $organisasi->unit_kerja_level = $request->unit_kerja_level;
+        $organisasi->status = 'Actived';
+        $organisasi->valid_from = $request->valid_from;
+        $organisasi->valid_to = $request->valid_to;
+        $organisasi->save();
+
+        return back()->with('update','Data berhasil diupdate.');
+    }
 }
