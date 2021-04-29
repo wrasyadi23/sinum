@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use App\Models\Organisasi;
 use Carbon\Carbon;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 class ImportOrganisasi implements ToCollection
 {
@@ -22,10 +23,10 @@ class ImportOrganisasi implements ToCollection
                     'parent_kode_unit' => $col[2],
                     'unit_kerja_level' => $col[3],
                     'status' => $col[4],
-                    // 'valid_from' => Carbon::parse($col[5]),
-                    'valid_from' => Carbon::createFromFormat('Y-m-d', $col[5]),
-                    // 'valid_to' => Carbon::parse($col[6]),
-                    'valid_to' => Carbon::createFromFormat('Y-m-d', $col[6]),
+                    'valid_from' => Carbon::instance(Date::excelToDateTimeObject($col[5])),
+//                    'valid_from' => Carbon::createFromFormat('Y-m-d', $col[5]),
+                    'valid_to' => Carbon::instance(Date::excelToDateTimeObject($col[6])),
+//                    'valid_to' => Carbon::createFromFormat('Y-m-d', $col[6]),
                 ]);
             }
         }
