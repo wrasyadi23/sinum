@@ -30,7 +30,7 @@
                                     Import
                                 </button>
 
-                                <a href="#" class="btn btn-primary mb-3">
+                                <a href="{{asset('organisasi-import.xlsx')}}" class="btn btn-primary mb-3">
                                     <i class="fa fa-download" aria-hidden="true"></i>
                                     Download Template
                                 </a>
@@ -119,6 +119,7 @@
                                             <option value="Seksi" >Seksi</option>
                                             <option value="Regu" >Regu</option>
                                             <option value="Staf" >Staf</option>
+                                            <option value="Staf/Kelompok" >Staf/Kelompok</option>
                                         </select>
                                     </div>
                                     <div class="row">
@@ -183,6 +184,7 @@
                                             <option value="Seksi" >Seksi</option>
                                             <option value="Regu" >Regu</option>
                                             <option value="Staf" >Staf</option>
+                                            <option value="Staf/Kelompok" >Staf/Kelompok</option>
                                         </select>
                                     </div>
                                     <div class="row">
@@ -277,6 +279,7 @@
                                             <option value="Seksi" {{$organisasi->first() == 'Seksi' ? 'selected' : ''}}>Seksi</option>
                                             <option value="Regu" {{$organisasi->first() == 'Regu' ? 'selected' : ''}}>Regu</option>
                                             <option value="Staf" {{$organisasi->first() == 'Staf' ? 'selected' : ''}}>Staf</option>
+                                            <option value="Staf/Kelompok" {{$organisasi->first() == 'Staf/Kelompok' ? 'selected' : ''}}>Staf/Kelompok</option>
                                         </select>
                                     </div>
                                     <div class="row">

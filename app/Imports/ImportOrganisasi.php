@@ -5,6 +5,7 @@ namespace App\Imports;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use App\Models\Organisasi;
+use Carbon\Carbon;
 
 class ImportOrganisasi implements ToCollection
 {
@@ -21,8 +22,8 @@ class ImportOrganisasi implements ToCollection
                     'parent_kode_unit' => $col[2],
                     'unit_kerja_level' => $col[3],
                     'status' => $col[4],
-                    'valid_from' => $col[5],
-                    'valid_to' => $col[6],
+                    'valid_from' => Carbon::parse($col[5]),
+                    'valid_to' => Carbon::parse($col[6]),
                 ]);
             }
         }

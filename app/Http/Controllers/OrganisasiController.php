@@ -8,6 +8,7 @@ use PDF;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Organisasi;
+use App\Imports\ImportOrganisasi;
 
 class OrganisasiController extends Controller
 {
