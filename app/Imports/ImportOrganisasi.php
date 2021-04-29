@@ -10,8 +10,8 @@ use Carbon\Carbon;
 class ImportOrganisasi implements ToCollection
 {
     /**
-    * @param Collection $collection
-    */
+     * @param Collection $collection
+     */
     public function collection(Collection $collection)
     {
         foreach ($collection as $key => $col) {
@@ -22,8 +22,10 @@ class ImportOrganisasi implements ToCollection
                     'parent_kode_unit' => $col[2],
                     'unit_kerja_level' => $col[3],
                     'status' => $col[4],
-                    'valid_from' => Carbon::parse($col[5]),
-                    'valid_to' => Carbon::parse($col[6]),
+                    // 'valid_from' => Carbon::parse($col[5]),
+                    'valid_from' => Carbon::createFromFormat('Y-m-d', $col[5]),
+                    // 'valid_to' => Carbon::parse($col[6]),
+                    'valid_to' => Carbon::createFromFormat('Y-m-d', $col[6]),
                 ]);
             }
         }
