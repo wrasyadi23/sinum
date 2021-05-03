@@ -294,6 +294,14 @@
                                             class="form-control" value="{{$organisasi->first()}}" required>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="">Status</label>
+                                        <select name="status" id="status" style="width: 100%;"
+                                         class="form-control select2bs4" required>
+                                            <option value="Actived" {{$organisasi->first() == 'Actived' ? 'selected' : ''}}>Actived</option>
+                                            <option value="Non Actived" {{$organisasi->first() == 'Non Actived' ? 'selected' : ''}}>Non Actived</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

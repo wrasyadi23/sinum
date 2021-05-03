@@ -62,7 +62,7 @@ class OrganisasiController extends Controller
         $organisasi->unit_kerja = $request->unit_kerja;
         $organisasi->parent_kode_unit = $request->parent_kode_unit;
         $organisasi->unit_kerja_level = $request->unit_kerja_level;
-        $organisasi->status = 'Actived';
+        $organisasi->status = $request->status;
         $organisasi->valid_from = $request->valid_from;
         $organisasi->valid_to = $request->valid_to;
         $organisasi->save();
