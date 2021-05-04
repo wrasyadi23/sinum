@@ -14,7 +14,9 @@ class OrganisasiController extends Controller
 {
     public function index()
     {
-        $organisasi = Organisasi::orderBy('id','desc')->get();
+        $organisasi = Organisasi::orderBy('id','desc')
+            ->whereYear('valid_to','4001')
+            ->get();
         return view('organisasi.organisasi', [
             'organisasi' => $organisasi,
         ]);
