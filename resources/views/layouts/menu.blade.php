@@ -14,6 +14,12 @@
         <p>Organisasi</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ route('karyawan')}}" class="nav-link">
+        <i class="nav-icon fas fa-users"></i>
+        <p>Karyawan</p>
+    </a>
+</li>
 
 {{-- <li class="nav-item">
     <a href="#" class="nav-link">

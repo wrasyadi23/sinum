@@ -24,4 +24,6 @@ Route::post('/organisasi/organisasi-store-downline', 'OrganisasiController@store
 Route::post('/organisasi/organisasi-import', 'OrganisasiController@import')->name('organisasi.import');
 Route::post('/organisasi/organisasi-update/{id}', 'OrganisasiController@update')->name('organisasi.update');
 
+Route::get('/karyawan/karyawan', 'KaryawanController@index')->name('karyawan');
+
 Auth::routes();
